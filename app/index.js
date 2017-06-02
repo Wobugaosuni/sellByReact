@@ -4,9 +4,9 @@ import { render } from 'react-dom';
 import 'normalize.css';
 import './common/stylus/index.styl'; // 引入公共样式
 
-import Todo from './containers/Todo';
-
-import { getData, postData } from './fetch/data';
+// import { getData, postData } from './fetch/data';
+import RouterMap from './router/router';
+import { hashHistory } from 'react-router';
 
 // 性能检测
 import Perf from 'react-addons-perf';
@@ -18,10 +18,10 @@ if (__DEV__) {
 }
 
 // fetch请求
-getData();
-postData();
+// getData();
+// postData();
 
 render (
-  <Todo />,
+  <RouterMap history={hashHistory} />,
   document.getElementById('root')
 );

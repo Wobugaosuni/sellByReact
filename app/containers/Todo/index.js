@@ -1,11 +1,12 @@
 import React from 'react';
 import './index.styl';
 
+// 性能优化
+import PureReanderMixin from 'react-addons-pure-render-mixin';
+
 import Input from '../../components/Input';
 import List from '../../components/List';
 
-// 性能优化
-import PureReanderMixin from 'react-addons-pure-render-mixin';
 
 class Todo extends React.Component {
   constructor(props) {
