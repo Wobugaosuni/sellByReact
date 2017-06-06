@@ -1,6 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
 
+import { Provider } from 'react-redux';
+import configureStore from './store/configureStore';
+
 import 'normalize.css';
 import './common/stylus/index.styl'; // 引入公共样式
 
@@ -17,11 +20,16 @@ if (__DEV__) {
   window.Perf = Perf
 }
 
+// 创建 Redux 的 store 对象
+const store = configureStore();
+
 // fetch请求
 // getData();
 // postData();
 
 render (
-  <RouterMap history={hashHistory} />,
+  <Provider store={store}>
+    <RouterMap history={hashHistory} />
+  </Provider>,
   document.getElementById('root')
 );

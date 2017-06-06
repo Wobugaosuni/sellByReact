@@ -6,7 +6,13 @@ import PureReanderMixin from 'react-addons-pure-render-mixin';
 import { CITYNAME } from '../config/localStoreKey';
 import localStore from '../util/localStore';
 
-export default class Input extends React.Component {
+// Redux相关
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
+import * as userInfoActionsFromOtherFile from '../actions/userinfo';
+
+class App extends React.Component {
   constructor(props) {
     super(props);
 
@@ -39,11 +45,33 @@ export default class Input extends React.Component {
       });
     }, 1000);
 
-    // 获取当前城市
+    // 1. 从localStorerage获取当前城市
     let cityName = localStore.getItem(CITYNAME);
 
     if (cityName == null) {
       cityName = '北京';
     }
+
+    // 2. 将城市信息存储到 Redux 中
+    this.props.userInfoActions.update({
+      cityName: cityName
+    });
   }
 }
+
+const mapStateToProps = state => {
+  return {
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    userInfoActions: bindActionCreators(userInfoActionsFromOtherFile, dispatch)
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
+
