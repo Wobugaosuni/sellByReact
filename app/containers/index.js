@@ -59,6 +59,7 @@ class App extends React.Component {
   }
 }
 
+/* eslint-disable */
 const mapStateToProps = state => {
   return {
   };
