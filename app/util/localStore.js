@@ -34,7 +34,7 @@ export default {
 
     } catch (error) {
       // 开发环境下提示error
-      /* eslint-disabled no-undef */
+      /* eslint-disable*/
       if (__DEV__) {
           console.error('localStorage.getItem error:', error.message);
       }
@@ -50,7 +50,7 @@ export default {
 
     } catch (error) {
       // 开发环境下提示error
-      /* eslint-disabled no-undef */
+      /* eslint-disable no-undef */
       if (__DEV__) {
           console.error('localStorage.setItem error:', error.message);
       }
