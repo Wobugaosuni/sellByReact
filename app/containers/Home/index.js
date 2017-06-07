@@ -4,7 +4,9 @@ import HomeHeader from '../../components/HomeHeader';
 
 import PureReanderMixin from 'react-addons-pure-render-mixin';
 
-export default class Input extends React.Component {
+import { connect } from 'react-redux';
+
+class Home extends React.Component {
   constructor(props) {
     super(props);
     this.shouldComponentUpdate = PureReanderMixin.shouldComponentUpdate.bind(this);
@@ -14,8 +16,25 @@ export default class Input extends React.Component {
   render() {
     return (
       <div role="containers:Home">
-        <HomeHeader />
+        <HomeHeader cityName={this.props.cityName} />
       </div>
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    cityName: state.userinfo.cityName
+  };
+};
+
+/* eslint-disable */
+const mapDispatchToProps = dispatch => {
+  return {
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Home);
