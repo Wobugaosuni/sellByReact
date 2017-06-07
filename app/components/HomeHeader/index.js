@@ -3,7 +3,7 @@ import './index.styl';
 
 import PureReanderMixin from 'react-addons-pure-render-mixin';
 
-export default class Input extends React.Component {
+export default class HomeHeader extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -12,8 +12,18 @@ export default class Input extends React.Component {
 
   render() {
     return (
-      <div>
-        header
+      <div role="component:HomeHeader">
+        <div className="header-left">
+          <span>深圳</span>
+          <i className="icon-angle-down"></i>
+        </div>
+        <div className="header-center">
+          <i className="icon-search"></i>
+          <input />
+        </div>
+        <div className="header-right">
+          <i className="icon-user"></i>
+        </div>
       </div>
     );
   }
