@@ -1,6 +1,7 @@
 import React from 'react';
 import './index.styl';
 import HomeHeader from '../../components/HomeHeader';
+import Category from '../../components/Category';
 
 import PureReanderMixin from 'react-addons-pure-render-mixin';
 
@@ -17,6 +18,7 @@ class Home extends React.Component {
     return (
       <div role="containers:Home">
         <HomeHeader cityName={this.props.cityName} />
+        <Category />
       </div>
     );
   }

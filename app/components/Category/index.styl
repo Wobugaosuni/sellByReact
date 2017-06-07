@@ -1,0 +1,42 @@
+@import '../../common/stylus/vars.styl';
+
+[role="component:Category"]
+  margin 22px 0 0 0
+
+  .dot-wrapper
+    text-align center
+
+    .dot-item
+      display inline-block
+      width 8px
+      height 8px
+      border-radius 4px
+      margin 0 10px 0 0
+      background-color lightGrey
+
+      &.dot-selected
+        background-color primary
+
+  .pane-wrapper
+
+    .pane-item
+      display inline-block
+      width 20%
+      text-align center
+
+      >span
+        display block
+
+      .pane-icon
+        width 46px
+        height 46px
+        margin 0 auto 6px
+        background-color lightGrey
+        border-radius 23px
+        background-size 46px 46px
+        background-repeat no-repeat
+
+      .pane-text
+        font-size 13px
+        margin 0 0 12px 0
+

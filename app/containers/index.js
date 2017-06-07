@@ -17,7 +17,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      initDone: false
+      initDone: true
     };
 
     this.shouldComponentUpdate = PureReanderMixin.shouldComponentUpdate.bind(this);
