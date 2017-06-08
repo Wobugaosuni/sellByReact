@@ -11,9 +11,9 @@ var koaBody = require('koa-body')();
 var app = new koa();
 var koaRouter = new router();
 
-// 1. 拿到data对象，定义对应变量
-var appData = require('../data/data.json');
-
+// 1. 拿到data，定义对应变量
+var testData = require('../data/data.json');
+var homeAdData = require('../data/home/ad');
 
 // 2. 编写路由
 koaRouter.get('/', function (ctx, next) {
@@ -21,11 +21,15 @@ koaRouter.get('/', function (ctx, next) {
 });
 
 koaRouter.get('/api', function (ctx, next) {
-  ctx.body = appData;
+  ctx.body = testData;
 });
 
 koaRouter.get('/api/get', function (ctx, next) {
-  ctx.body = appData.goods;
+  ctx.body = testData.goods;
+});
+
+koaRouter.get('/api/homead', function (ctx, next) {
+  ctx.body = homeAdData;
 });
 
 koaRouter.post('/api/post', koaBody, function (ctx) {

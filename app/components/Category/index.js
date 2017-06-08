@@ -23,7 +23,6 @@ export default class Category extends React.Component {
 
     let swipeOptions = {
       auto: 2000,
-      /* eslint-disable */
       callback: function (index, element) {
         This.setState({
           swipeIndex: index
