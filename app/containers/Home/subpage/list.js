@@ -4,14 +4,18 @@ import { connect } from 'react-redux';
 
 import './index.styl';
 import HomeList from '../../../components/HomeList';
+import LoadMore from '../../../components/LoadMore';
+
 import getHomeDataActions from '../../../fetch/home/home';
 
 class List extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      listData: [],
-      hasMore: false
+      listData: [],  // 存储列表信息
+      hasMore: false,  // 记录当前状态下，是否有更多的数据可供加载。后端提供！
+      isLoadingMore: false,  //记录当前状态下，是”点击加载更多“，还是”加载中……“
+      page: 0  // 记录下一页的页面，首页是0
     };
     this.shouldComponentUpdate = PureReanderMixin.shouldComponentUpdate.bind(this);
   }
@@ -25,6 +29,11 @@ class List extends React.Component {
           <HomeList listData={this.state.listData} /> :
           ''
         }
+        {
+          this.state.hasMore ?
+          <LoadMore isLoadingMore={this.state.isLoadingMore} loadMoreData={this.loadMoreData.bind(this)} /> :
+          ''
+        }
       </div>
     );
   }
@@ -33,19 +42,40 @@ class List extends React.Component {
     let This = this;
 
     // 获取首屏数据
+    This.getHomeListData();
+  }
+
+  getHomeListData() {
+    let This = this;
+
     getHomeDataActions.getHomeList(
       encodeURIComponent(This.props.cityName),
-      0,
+      This.state.page,
       (json) => {
         let hasMore = json.hasMore;
         let listData = json.data;
 
         This.setState({
           hasMore,
-          listData
+          listData: This.state.listData.concat(listData),
+          page: This.state.page + 1,
+          isLoadingMore: false
         });
       }
     );
+  }
+
+  // "加载更多"被点击时
+  loadMoreData() {
+    let This = this;
+
+    // 加载状态转换
+    This.setState({
+      isLoadingMore: true
+    });
+
+    // 加载下一屏数据
+    This.getHomeListData();
   }
 }
 
