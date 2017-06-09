@@ -12,29 +12,37 @@ var app = new koa();
 var koaRouter = new router();
 
 // 1. 拿到data，定义对应变量
-var testData = require('../data/data.json');
 var homeAdData = require('../data/home/ad');
+var homeListData = require('../data/home/list');
 
 // 2. 编写路由
-koaRouter.get('/', function (ctx, next) {
-  ctx.body = 'hello koa';
-});
-
-koaRouter.get('/api', function (ctx, next) {
-  ctx.body = testData;
-});
-
-koaRouter.get('/api/get', function (ctx, next) {
-  ctx.body = testData.goods;
-});
-
+// 首页 —— 广告（超值特惠）
 koaRouter.get('/api/homead', function (ctx, next) {
   ctx.body = homeAdData;
 });
 
-koaRouter.post('/api/post', koaBody, function (ctx) {
-  ctx.body = JSON.stringify(ctx.request.body);
+// 首页 —— 推荐列表（猜你喜欢）
+koaRouter.get('/api/homelist/:city/:page', function (ctx, next) {
+  console.log('ctc.params', ctx.params);
+
+  ctx.body = homeListData;
 });
+
+// koaRouter.get('/', function (ctx, next) {
+//   ctx.body = 'hello koa';
+// });
+
+// koaRouter.get('/api', function (ctx, next) {
+//   ctx.body = testData;
+// });
+
+// koaRouter.get('/api/get', function (ctx, next) {
+//   ctx.body = testData.goods;
+// });
+
+// koaRouter.post('/api/post', koaBody, function (ctx) {
+//   ctx.body = JSON.stringify(ctx.request.body);
+// });
 
 
 // 3. 使用路由

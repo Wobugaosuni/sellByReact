@@ -1,12 +1,13 @@
 import React from 'react';
+import PureReanderMixin from 'react-addons-pure-render-mixin';
+import { connect } from 'react-redux';
+
 import './index.styl';
 import HomeHeader from '../../components/HomeHeader';
 import Category from '../../components/Category';
 import HomeAd from './subpage/ad';
+import HomeList from './subpage/list';
 
-import PureReanderMixin from 'react-addons-pure-render-mixin';
-
-import { connect } from 'react-redux';
 
 class Home extends React.Component {
   constructor(props) {
@@ -22,6 +23,7 @@ class Home extends React.Component {
         <Category />
         <div className="gap-divider"></div>
         <HomeAd />
+        <HomeList />
       </div>
     );
   }

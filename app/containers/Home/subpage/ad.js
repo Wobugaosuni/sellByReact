@@ -1,13 +1,13 @@
 import React from 'react';
 import './index.styl';
 
-import HomeAd from '../../../../components/HomeAd';
+import HomeAd from '../../../components/HomeAd';
 
 import PureReanderMixin from 'react-addons-pure-render-mixin';
 
-import getHomeDataActions from '../../../../fetch/home/home';
+import getHomeDataActions from '../../../fetch/home/home';
 
-export default class ad extends React.Component {
+export default class Ad extends React.Component {
   constructor(props) {
     super(props);
 
@@ -37,9 +37,12 @@ export default class ad extends React.Component {
     // 获取广告数据
     getHomeDataActions.getHomeAd(json => {
       console.log('get homeAdData success', json);
-      This.setState({
-        homeAdData: json
-      });
+
+      if (json.length) {
+        This.setState({
+          homeAdData: json
+        });
+      }
     });
   }
 }
