@@ -20,6 +20,7 @@ class Home extends React.Component {
       <div role="containers:Home">
         <HomeHeader cityName={this.props.cityName} />
         <Category />
+        <div className="gap-divider"></div>
         <HomeAd />
       </div>
     );

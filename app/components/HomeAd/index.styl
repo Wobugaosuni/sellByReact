@@ -1,0 +1,38 @@
+@import '../../common/stylus/mixin.styl';
+@import '../../common/stylus/vars.styl';
+
+[role="component:HomeAd"]
+  background #fff
+
+  .ad-title
+    height 40px
+    line-height 40px
+    padding 0 15px
+
+  .line-divider
+    borderBottom1px(lightGrey, solid)
+
+  .ad-container
+    padding 0 15px
+
+    .ad-item
+      box-sizing border-box
+      display inline-block
+      width 33.33%
+      border-right 1px solid lightGrey
+      border-bottom 1px solid lightGrey
+      padding 0 0 9px 0
+      text-align center
+
+      &:nth-child(3),&:nth-child(6)
+        border-right 0px
+
+      &:nth-child(4),&:nth-child(5),&:nth-child(6)
+        border-bottom 0px
+
+      .ad-img
+        display inline-block
+        width 96px
+        height 111px
+        background-size 96px 111px
+
