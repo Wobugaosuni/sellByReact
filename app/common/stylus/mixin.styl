@@ -1,0 +1,32 @@
+/*
+ * line通用样式
+ */
+
+borderTop1px($color)
+  position: relative
+
+  &::before
+    display: block
+    position: absolute
+    width: 100%
+    top: 0
+    left: 0
+    content: ''
+    border-top: 1px solid $color
+    transform: scaleY(0.7)
+    -webkit-transform: scaleY(0.7)
+
+
+borderBottom1px($color, $lineType)
+  position: relative
+
+  &::after
+    display: block
+    position: absolute
+    width: 100%
+    bottom: 0
+    left: 0
+    content: ''
+    border-top: 1px $lineType $color
+    transform: scaleY(0.7)
+    -webkit-transform: scaleY(0.7)
