@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router';
+
 import './index.styl';
 
 import PureReanderMixin from 'react-addons-pure-render-mixin';
@@ -14,8 +16,10 @@ export default class HomeHeader extends React.Component {
     return (
       <div role="component:HomeHeader">
         <div className="header-left">
-          <span>{this.props.cityName}</span>
-          <i className="icon-angle-down"></i>
+          <Link to="/city">
+            <span>{this.props.cityName}</span>
+            <i className="icon-angle-down"></i>
+          </Link>
         </div>
         <div className="header-center">
           <i className="icon-search"></i>
