@@ -1,5 +1,6 @@
 import React from 'react';
 import PureReanderMixin from 'react-addons-pure-render-mixin';
+import { hashHistory } from 'react-router';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -40,7 +41,10 @@ class City extends React.Component {
     localStore.setItem(CITYNAME, newCity);
 
     // 3. 返回首页
-    window.history.back();
+    // window.history.back();
+    // console.log('hashHistory', hashHistory);
+    hashHistory.push('/');
+
   }
 }
 
