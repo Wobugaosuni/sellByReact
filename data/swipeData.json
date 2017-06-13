@@ -3,42 +3,52 @@
     {
       "pane": [
         {
+          "category": "jingdian",
           "text": "景点",
           "url": "http://images2015.cnblogs.com/blog/138012/201610/138012-20161022224203170-1528315005.png"
         },
         {
+          "category": "ktv",
           "text": "KTV",
           "url": "http://images2015.cnblogs.com/blog/138012/201610/138012-20161022224309185-1519181081.png"
         },
         {
+          "category": "gouwu",
           "text": "购物",
           "url": "http://images2015.cnblogs.com/blog/138012/201610/138012-20161022224150045-30962603.png"
         },
         {
+          "category": "shenghuofuwu",
           "text": "生活服务",
           "url": "http://images2015.cnblogs.com/blog/138012/201610/138012-20161022224237513-176380794.png"
         },
         {
+          "category": "jianshenyundong",
           "text": "健身运动",
           "url": "http://images2015.cnblogs.com/blog/138012/201610/138012-20161022224256732-145714491.png"
         },
         {
+          "category": "meifa",
           "text": "美发",
           "url": "http://images2015.cnblogs.com/blog/138012/201610/138012-20161022224222123-643915682.png"
         },
         {
+          "category": "qinzi",
           "text": "亲子",
           "url": "http://images2015.cnblogs.com/blog/138012/201610/138012-20161022224229451-475201730.png"
         },
         {
+          "category": "xiaochikuaican",
           "text": "小吃快餐",
           "url": "http://images2015.cnblogs.com/blog/138012/201610/138012-20161022224244545-1583700011.png"
         },
         {
+          "category": "zizhucan",
           "text": "自助餐",
           "url": "http://images2015.cnblogs.com/blog/138012/201610/138012-20161022224113560-1012968440.png"
         },
         {
+          "category": "jiuba",
           "text": "酒吧",
           "url": "http://images2015.cnblogs.com/blog/138012/201610/138012-20161022224210732-490953965.png"
         }
@@ -47,42 +57,52 @@
     {
       "pane": [
         {
+          "category": "meishi",
           "text": "美食",
           "url": "http://images2015.cnblogs.com/blog/138012/201610/138012-20161022224409107-2018112337.png"
         },
         {
+          "category": "dianying",
           "text": "电影",
           "url": "http://images2015.cnblogs.com/blog/138012/201610/138012-20161022224033873-290248113.png"
         },
         {
+          "category": "jiudian",
           "text": "酒店",
           "url": "http://images2015.cnblogs.com/blog/138012/201610/138012-20161022224051513-2057698989.png"
         },
         {
+          "category": "xiuxianyule",
           "text": "休闲娱乐",
           "url": "http://images2015.cnblogs.com/blog/138012/201610/138012-20161022224129076-2058206915.png"
         },
         {
+          "category": "waimai",
           "text": "外卖",
           "url": "http://images2015.cnblogs.com/blog/138012/201610/138012-20161022224121920-424129491.png"
         },
         {
+          "category": "huoguo",
           "text": "火锅",
           "url": "http://images2015.cnblogs.com/blog/138012/201610/138012-20161022224046342-1896393176.png"
         },
         {
+          "category": "liren",
           "text": "丽人",
           "url": "http://images2015.cnblogs.com/blog/138012/201610/138012-20161022224057670-257626875.png"
         },
         {
+          "category": "dujiachuxing",
           "text": "度假出行",
           "url": "http://images2015.cnblogs.com/blog/138012/201610/138012-20161022224040842-2050913385.png"
         },
         {
+          "category": "zuliaoanmo",
           "text": "足疗按摩",
           "url": "http://images2015.cnblogs.com/blog/138012/201610/138012-20161022224144060-1009120401.png"
         },
         {
+          "category": "zhoubianyou",
           "text": "周边游",
           "url": "http://images2015.cnblogs.com/blog/138012/201610/138012-20161022224138123-197921773.png"
         }
@@ -91,42 +111,52 @@
     {
       "pane": [
         {
+          "category": "ribencai",
           "text": "日本菜",
           "url": "http://images2015.cnblogs.com/blog/138012/201610/138012-20161022224354951-1102565687.png"
         },
         {
+          "category": "spa",
           "text": "SPA",
           "url": "http://images2015.cnblogs.com/blog/138012/201610/138012-20161022224419998-1442330810.png"
         },
         {
+          "category": "jiehun",
           "text": "结婚",
           "url": "http://images2015.cnblogs.com/blog/138012/201610/138012-20161022224340545-213074048.png"
         },
         {
+          "category": "xuexipeixun",
           "text": "学习培训",
           "url": "http://images2015.cnblogs.com/blog/138012/201610/138012-20161022224415013-114294334.png"
         },
         {
+          "category": "xican",
           "text": "西餐",
           "url": "http://images2015.cnblogs.com/blog/138012/201610/138012-20161022224409107-2018112337.png"
         },
         {
+          "category": "huochejipiao",
           "text": "火车机票",
           "url": "http://images2015.cnblogs.com/blog/138012/201610/138012-20161022224323467-1926976043.png"
         },
         {
+          "category": "shaokao",
           "text": "烧烤",
           "url": "http://images2015.cnblogs.com/blog/138012/201610/138012-20161022224402576-1611337354.png"
         },
         {
+          "category": "jiazhuang",
           "text": "家装",
           "url": "http://images2015.cnblogs.com/blog/138012/201610/138012-20161022224333185-1082315113.png"
         },
         {
+          "category": "chongwu",
           "text": "宠物",
           "url": "http://images2015.cnblogs.com/blog/138012/201610/138012-20161022224315779-157132725.png"
         },
         {
+          "category": "quanbufenlei",
           "text": "全部分类",
           "url": "http://images2015.cnblogs.com/blog/138012/201610/138012-20161022224348467-646596364.png"
         }
