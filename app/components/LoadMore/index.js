@@ -39,42 +39,48 @@ export default class LoadMore extends React.Component {
    * 2. 设置定时器
    */
   componentDidMount() {
-    const loadMoreElement = this.refs.loadMore;
     let This = this;
-    let timeoutId;
+    window.addEventListener('scroll', This.scrollCallback.bind(this), false);
+  }
 
-    window.addEventListener('scroll', () => {
-      // 如果正处于加载中，退出监听
-      if(This.props.isLoadingMore) {
-        return;
-      }
-
-      console.log('scroll');
-
-      // setTimeout 执行时会返回一个数字
-      if(timeoutId) {
-        clearTimeout(timeoutId);
-      }
-
-      timeoutId = setTimeout(() => {
-        let loadMoreElementTop = loadMoreElement.getBoundingClientRect().top;
-        let windowHeight = window.screen.height;
-
-        console.log('timeout');
-
-        if (loadMoreElementTop && loadMoreElementTop < windowHeight) {
-          This.props.loadMoreData();
-        }
-      }, 40);
-
-      console.log('timeoutId', timeoutId);
-
-
-    }, false);
+  componentWillUnmount() {
+    let This = this;
+    window.removeEventListener('scroll', This.scrollCallback.bind(this), false);
   }
 
   onLoadingMoreClick() {
     // loading状态转换 + 加载下一页数据
     this.props.loadMoreData();
+  }
+
+  scrollCallback() {
+    let This = this;
+    let timeoutId;
+    const loadMoreElement = This.refs.loadMore;
+
+    // 如果正处于加载中，退出监听
+    if(This.props.isLoadingMore) {
+      return;
+    }
+
+    // console.log('scroll');
+
+    // setTimeout 执行时会返回一个数字
+    if(timeoutId) {
+      clearTimeout(timeoutId);
+    }
+
+    timeoutId = setTimeout(() => {
+      let loadMoreElementTop = loadMoreElement.getBoundingClientRect().top;
+      let windowHeight = window.screen.height;
+
+      // console.log('timeout');
+
+      if (loadMoreElementTop && loadMoreElementTop < windowHeight) {
+        This.props.loadMoreData();
+      }
+    }, 40);
+
+    // console.log('timeoutId', timeoutId);
   }
 }
