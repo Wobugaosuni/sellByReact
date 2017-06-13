@@ -13,13 +13,13 @@ export default class Input extends React.Component {
   render() {
     return (
       <div role="containers:Search">
-        Search {this.props.params.category}
+        Search {this.props.params.catagory} {this.props.params.keywords}
       </div>
     );
   }
 
   componentDidMount() {
-    console.log('params', this.props.params);
+    // console.log('params', this.props.params);
   }
 
 }
