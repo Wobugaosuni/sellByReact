@@ -45,6 +45,6 @@ export default class HomeList extends React.Component {
   }
 
   componentDidMount() {
-    console.log('props', this.props.listData);
+    // console.log('props', this.props.listData);
   }
 }
