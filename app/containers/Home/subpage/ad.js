@@ -24,7 +24,7 @@ export default class Ad extends React.Component {
         {
           this.state.homeAdData.length ?
           <HomeAd homeAdData={this.state.homeAdData} /> :
-          '加载中……'
+          ''
         }
 
       </div>

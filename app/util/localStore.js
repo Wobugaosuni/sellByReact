@@ -45,6 +45,8 @@ export default {
   },
 
   setItem (key, value) {
+    // ios safari 无痕模式下，直接使用 localStorage.setItem 会报错
+    // 所以要使用 try
     try {
       localStorage.setItem(key, value);
 

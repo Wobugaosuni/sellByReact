@@ -6,6 +6,8 @@
 - 1. 打包编译时，webpack不能打包svg文件
 <div align=center><img src="./images/build-error.jpeg" width="500" alt="error" /></div>
 <br />
+解决方法： <br />
+现在浏览器基本也用不到 svg 的字体文件，可以把iconfont里引用svg的相关代码去掉
 
 ## 待做的事情
 - 升级router，使用react-router-dom
