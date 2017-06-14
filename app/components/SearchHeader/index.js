@@ -33,7 +33,8 @@ export default class SearchHeader extends React.Component {
 
 
   onReturnHomeClick() {
-    window.history.back();
+    // window.history.back();
+    hashHistory.push('/');
   }
 
   onEnterClick(newValue) {

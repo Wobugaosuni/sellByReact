@@ -23,7 +23,7 @@ export default class Category extends React.Component {
     let This = this;
 
     let swipeOptions = {
-      // auto: 2000,
+      auto: 2000,
       callback: function (index, element) {
         This.setState({
           swipeIndex: index
