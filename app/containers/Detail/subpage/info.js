@@ -19,7 +19,10 @@ export default class Info extends React.Component {
       <div>
         {
           this.state.sellerInfo ?
-          <DetailInfo sellerInfo={this.state.sellerInfo} /> :
+          <DetailInfo
+            sellerId={this.props.id}
+            sellerInfo={this.state.sellerInfo}
+          /> :
           ''
         }
       </div>
@@ -29,7 +32,7 @@ export default class Info extends React.Component {
   componentDidMount() {
     let This = this;
 
-    console.log('seller id:', This.props.id);
+    // console.log('seller id:', This.props.id);
 
     getDetailDataActions.getSellerInfo(
       This.props.id,
@@ -38,7 +41,7 @@ export default class Info extends React.Component {
         This.setState({
           sellerInfo: json
         });
-        console.log('getSellerInfo success', json);
+        // console.log('getSellerInfo success', json);
       }
     );
   }

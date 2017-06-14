@@ -1,0 +1,33 @@
+@import '../../common/stylus/mixin.styl';
+@import '../../common/stylus/vars.styl';
+
+[role="component:DetailInfo"]
+
+  .info-container
+    display flex
+    padding 15px
+
+    .img-wrapper
+      margin 0 15px 0 0
+
+      >img
+        width 130px
+        height 100px
+
+    .info-content
+
+      .score-price
+        display flex
+        margin 15px 0
+
+        .price-content
+          margin 0 0 0 15px
+
+  .gap-divider
+    margin 0 15px
+    borderBottom1px(lightGrey, solid)
+
+  .seller-desc
+    padding 15px
+    line-height 1.5
+    color darkGrey
