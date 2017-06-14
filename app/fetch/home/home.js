@@ -28,7 +28,7 @@ export default {
    * @param {any} successCallback
    */
   getHomeList (city, page, successCallback) {
-    var result = get(`api/homelist/${city}/${page}`);
+    var result = get(`api/homelist/${encodeURIComponent(city)}/${page}`);
 
     result.then(response => {
       return response.json();

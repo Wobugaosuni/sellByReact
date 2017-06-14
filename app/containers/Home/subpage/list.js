@@ -39,17 +39,15 @@ class List extends React.Component {
   }
 
   componentDidMount() {
-    let This = this;
-
     // 获取首屏数据
-    This.getHomeListData();
+    this.getHomeListData();
   }
 
   getHomeListData() {
     let This = this;
 
     getHomeDataActions.getHomeList(
-      encodeURIComponent(This.props.cityName),
+      This.props.cityName,
       This.state.page,
       (json) => {
         let hasMore = json.hasMore;
@@ -65,7 +63,7 @@ class List extends React.Component {
     );
   }
 
-  // "加载更多"被点击时
+  // "加载更多"
   loadMoreData() {
     let This = this;
 

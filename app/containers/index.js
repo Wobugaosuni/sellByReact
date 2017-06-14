@@ -17,7 +17,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      initDone: true
+      initDone: false
     };
 
     this.shouldComponentUpdate = PureReanderMixin.shouldComponentUpdate.bind(this);
@@ -38,13 +38,6 @@ class App extends React.Component {
   componentDidMount () {
     let This = this;
 
-    // 模仿异步
-    setTimeout(function() {
-      This.setState({
-        initDone: true
-      });
-    }, 1000);
-
     // 1. 从localStorerage获取当前城市
     let cityName = localStore.getItem(CITYNAME);
 
@@ -56,6 +49,13 @@ class App extends React.Component {
     this.props.userInfoActions.update({
       cityName: cityName
     });
+
+    // 模仿异步
+    setTimeout(function() {
+      This.setState({
+        initDone: true
+      });
+    }, 50);
   }
 }
 

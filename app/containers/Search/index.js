@@ -1,5 +1,6 @@
 import React from 'react';
 import './index.styl';
+import SearchHeader from '../../components/SearchHeader';
 
 import PureReanderMixin from 'react-addons-pure-render-mixin';
 
@@ -13,7 +14,7 @@ export default class Input extends React.Component {
   render() {
     return (
       <div role="containers:Search">
-        Search {this.props.params.catagory} {this.props.params.keywords}
+        <SearchHeader searchValue={this.props.params.keywords} />
       </div>
     );
   }
