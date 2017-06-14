@@ -8,7 +8,6 @@ export default class SellerList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: 1
     };
     this.shouldComponentUpdate = PureReanderMixin.shouldComponentUpdate.bind(this);
   }
@@ -21,7 +20,7 @@ export default class SellerList extends React.Component {
             return (
               <div className="list-content" key={index}>
 
-                <Link to={`/detail/${this.state.id}`}>
+                <Link to={`/detail/${item.id}`}>
                   <div className="list-item">
                     <img width="115" height="90" src={item.img} />
                     <div className="item-right">
