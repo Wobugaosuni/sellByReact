@@ -1,14 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 
 import './index.styl';
+import SearchInput from '../SearchInput';
 
 import PureReanderMixin from 'react-addons-pure-render-mixin';
 
 export default class HomeHeader extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      searchValue: ''
+    };
     this.shouldComponentUpdate = PureReanderMixin.shouldComponentUpdate.bind(this);
   }
 
@@ -23,12 +26,19 @@ export default class HomeHeader extends React.Component {
         </div>
         <div className="header-center">
           <i className="icon-search"></i>
-          <input />
+          <SearchInput
+            searchValue={this.state.searchValue}
+            enterClick={this.onEnterClick.bind(this)}
+          />
         </div>
         <div className="header-right">
           <i className="icon-user"></i>
         </div>
       </div>
     );
+  }
+
+  onEnterClick(newValue) {
+     hashHistory.push(`search/all/${encodeURIComponent(newValue)}`);
   }
 }

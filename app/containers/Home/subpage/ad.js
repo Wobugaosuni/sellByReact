@@ -36,7 +36,7 @@ export default class Ad extends React.Component {
 
     // 获取广告数据
     getHomeDataActions.getHomeAd(json => {
-      console.log('get homeAdData success', json);
+      // console.log('get homeAdData success', json);
 
       if (json.length) {
         This.setState({

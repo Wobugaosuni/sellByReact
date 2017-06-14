@@ -17,8 +17,8 @@ export default class Routes extends React.Component {
 
           <IndexRoute component={Home}></IndexRoute>
           <Route path="/city" component={City}></Route>
+          <Route path="/search/:category(/:keywords)" component={Search}></Route>
           <Route path="/user" component={User}></Route>
-          <Route path="/search" component={Search}></Route>
           <Route path="/detail" component={Detail}></Route>
 
         </Route>

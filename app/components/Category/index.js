@@ -1,7 +1,8 @@
 import React from 'react';
-import './index.styl';
-
 import PureReanderMixin from 'react-addons-pure-render-mixin';
+import { Link } from 'react-router';
+
+import './index.styl';
 
 // 使用 React 轮播插件
 import ReactSwipe from 'react-swipe';
@@ -41,10 +42,12 @@ export default class Category extends React.Component {
                     {
                       item.pane ? item.pane.map((category, categoryIndex) => {
                         return (
-                          <li key={categoryIndex} className="pane-item">
-                            <span className="pane-icon" style={{backgroundImage: `url(${category.url})`}}></span>
-                            <span className="pane-text">{category.text}</span>
-                          </li>
+                          <Link key={categoryIndex} to={`search/${category.category}`}>
+                            <li className="pane-item">
+                              <span className="pane-icon" style={{backgroundImage: `url(${category.url})`}}></span>
+                              <span className="pane-text">{category.text}</span>
+                            </li>
+                          </Link>
                         );
                       }) : ''
                     }
