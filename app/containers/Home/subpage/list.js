@@ -3,7 +3,7 @@ import PureReanderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
 
 import './index.styl';
-import HomeList from '../../../components/HomeList';
+import SellerList from '../../../components/SellerList';
 import LoadMore from '../../../components/LoadMore';
 
 import getHomeDataActions from '../../../fetch/home/home';
@@ -26,7 +26,7 @@ class List extends React.Component {
         <h3 className="list-title">猜你喜欢</h3>
         {
           this.state.listData.length ?
-          <HomeList listData={this.state.listData} /> :
+          <SellerList listData={this.state.listData} /> :
           ''
         }
         {

@@ -1,7 +1,7 @@
 import React from 'react';
-import './index.styl';
-
 import PureReanderMixin from 'react-addons-pure-render-mixin';
+
+import './index.styl';
 
 export default class Input extends React.Component {
   constructor(props) {
@@ -14,6 +14,7 @@ export default class Input extends React.Component {
     return (
       <div role="containers:Detail">
         Detail
+        {this.props.params.id}
       </div>
     );
   }
