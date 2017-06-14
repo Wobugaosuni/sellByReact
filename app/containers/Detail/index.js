@@ -1,6 +1,7 @@
 import React from 'react';
 import PureReanderMixin from 'react-addons-pure-render-mixin';
 
+import getDetailDataActions from '../../fetch/detail/detail';
 import './index.styl';
 
 export default class Input extends React.Component {
@@ -18,4 +19,18 @@ export default class Input extends React.Component {
       </div>
     );
   }
+
+  componentDidMount() {
+    let This = this;
+
+    console.log('seller id', This.props.params.id);
+
+    getDetailDataActions.getSellerInfo(
+      This.props.params.id,
+      (data) => {
+        console.log('getSellerInfo success', data);
+      }
+    );
+  }
+
 }
