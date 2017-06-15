@@ -3,7 +3,7 @@ import PureReanderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
 
 import './index.styl';
-import HomeList from '../../../components/HomeList';
+import SellerList from '../../../components/SellerList';
 import LoadMore from '../../../components/LoadMore';
 
 import getSearchDataActions from '../../../fetch/search/search';
@@ -27,7 +27,7 @@ class SearchList extends React.Component {
       <div role="subpage:SearchList">
         {
           this.state.listData.length ?
-          <HomeList listData={this.state.listData} /> :
+          <SellerList listData={this.state.listData} /> :
           ''
         }
         {

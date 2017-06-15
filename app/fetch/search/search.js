@@ -1,6 +1,14 @@
 import { get } from '../get';
 
 export default {
+  /**
+   * 获取搜索结果 —— 商户列表
+   * @param {any} city
+   * @param {any} page
+   * @param {any} category
+   * @param {any} keywords
+   * @param {any} successCallback
+   */
   getSearchList(city, page, category, keywords, successCallback) {
     const keywordsStr = keywords.length ? `/${encodeURIComponent(keywords)}` : '';
 

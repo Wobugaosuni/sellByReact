@@ -17,9 +17,24 @@ input
   outline none
   border 0
 
-h3
+h3,p
   padding 0
   margin 0
 
 a
   text-decoration none
+
+
+.full-line-divider
+  position: relative
+
+  &::after
+    display: block
+    position: absolute
+    width: 100%
+    bottom: 0
+    left: 0
+    content: ''
+    border-top: 1px solid lightGrey
+    transform: scaleY(0.7)
+    -webkit-transform: scaleY(0.7)

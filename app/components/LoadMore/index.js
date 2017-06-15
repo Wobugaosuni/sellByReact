@@ -81,7 +81,7 @@ export default class LoadMore extends React.Component {
     let This = this;
     let timeoutId;
     const loadMoreElement = This.refs.loadMore;
-    console.log('loadMoreElement', loadMoreElement);
+    // console.log('loadMoreElement', loadMoreElement);
 
     // 如果正处于加载中，退出监听
     if(This.props.isLoadingMore) {
