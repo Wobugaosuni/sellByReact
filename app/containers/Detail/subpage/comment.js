@@ -57,7 +57,7 @@ export default class Comment extends React.Component {
           page: This.state.page + 1,
           isLoadingMore: false
         });
-        console.log('getSellerComment success', json);
+        // console.log('getSellerComment success', json);
       }
     );
   }
