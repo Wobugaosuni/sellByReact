@@ -20,5 +20,27 @@ export default {
         console.log('getSellerInfo fail', error);
       }
     });
+  },
+
+  /**
+   * 获取商户评价
+   * @param {any} id
+   * @param {any} page
+   * @param {any} successCallback
+   */
+  getSellerComment(id, page, successCallback) {
+    var result = get(`/api/sellercomment/${id}/${page}`);
+
+    result.then(response => {
+      return response.json();
+
+    }).then(json => {
+      successCallback(json);
+
+    }).catch(error => {
+      if (__DEV__) {
+        console.log('getSellerComment fail', error);
+      }
+    });
   }
 };

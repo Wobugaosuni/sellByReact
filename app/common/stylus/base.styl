@@ -23,3 +23,18 @@ h3,p
 
 a
   text-decoration none
+
+
+.full-line-divider
+  position: relative
+
+  &::after
+    display: block
+    position: absolute
+    width: 100%
+    bottom: 0
+    left: 0
+    content: ''
+    border-top: 1px solid lightGrey
+    transform: scaleY(0.7)
+    -webkit-transform: scaleY(0.7)

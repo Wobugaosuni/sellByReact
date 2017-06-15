@@ -16,6 +16,7 @@ var homeAdData = require('../data/home/ad');
 var homeListData = require('../data/home/list');
 var searchListData = require('../data/search/list');
 var sellerInfo = require('../data/detail/info');
+var sellerComment = require('../data/detail/comment');
 
 // 2. 编写路由
 // 首页 —— 广告（超值特惠）
@@ -49,6 +50,13 @@ koaRouter.get('/api/sellerinfo/:id', function (ctx, next) {
   console.log('sellerinfo/:id', ctx.params);
 
   ctx.body = sellerInfo;
+});
+
+// 商户评论列表
+koaRouter.get('/api/sellercomment/:id/:page', function (ctx, next) {
+  console.log('sellercomment/:id/:page', ctx.params);
+
+  ctx.body = sellerComment;
 });
 
 // koaRouter.get('/', function (ctx, next) {
