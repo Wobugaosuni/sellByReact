@@ -6,6 +6,8 @@ import './index.styl';
 import StoreAndBuyComponent from '../../../components/StoreAndBuy';
 
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as storeActionsFromFile from '../../../actions/store';
 
 class StoreAndBuy extends React.Component {
   constructor(props) {
@@ -23,6 +25,12 @@ class StoreAndBuy extends React.Component {
       </div>
     );
   }
+
+  componentDidMount() {
+    console.log('data', this.props.store);
+    console.log('method', this.props.storeActions);
+  }
+
 
   storeHandle() {
     // 1. 检查是否登录
@@ -60,13 +68,15 @@ class StoreAndBuy extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    userinfo: state.userinfo
+    userinfo: state.userinfo,
+    store: state.store
   };
 };
 
 /* eslint-disable */
 const mapDispatchToProps = dispatch => {
   return {
+    storeActions: bindActionCreators(storeActionsFromFile, dispatch)
   };
 };
 
