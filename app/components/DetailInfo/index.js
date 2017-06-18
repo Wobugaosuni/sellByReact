@@ -2,7 +2,7 @@ import React from 'react';
 import PureReanderMixin from 'react-addons-pure-render-mixin';
 
 import './index.styl';
-import Star from '../../components/star';
+import Star from '../../components/Star';
 
 export default class DetailInfo extends React.Component {
   constructor(props) {
