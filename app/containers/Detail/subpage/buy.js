@@ -30,10 +30,27 @@ class StoreAndBuy extends React.Component {
   }
 
   componentDidMount() {
-    // console.log('data', this.props.store);
-    // console.log('method', this.props.storeActions);
+    this.checkStoreState();
   }
 
+  // 检查商户是否已经收藏
+  checkStoreState() {
+    const store = this.props.store;
+    const id = this.props.id;
+    let This = this;
+
+    store.some(item => {
+      if (item.id === id) {
+        // 已经在收藏列表
+        This.setState({
+          isStore: true
+        });
+        return true;
+      }
+    });
+  }
+
+  // 检查是否已经登录
   loginCheck() {
     const userinfo = this.props.userinfo;
     const id = this.props.id;
@@ -51,38 +68,21 @@ class StoreAndBuy extends React.Component {
 
   storeHandle() {
     let This = this;
+    const id = this.props.id;
 
     // 1. 检查是否登录
     const isLogin = this.loginCheck();
-
     if (!isLogin) {
       return;
     }
 
     // 2. 收藏或取消收藏
-    const store = this.props.store;
-    const id = this.props.id;
-
-    if (!store.length) {
-      This.props.storeActions.add({
-        id: id
-      });
+    if (this.state.isStore) {
+      // 已经被收藏了，则取消收藏
+      this.props.storeActions.remove({id});
     } else {
-      store.some(item => {
-        if (item.id === id) {
-          // 已经在收藏列表，现在需要取消收藏
-          This.props.storeActions.remove({
-            id: id
-          });
-        } else {
-
-          // 不在收藏列表，现在需要增加收藏
-          This.props.storeActions.add({
-            id: id
-          });
-        }
-      });
-
+      // 未收藏，则添加到收藏中
+      this.props.storeActions.add({id});
     }
 
     this.setState({
@@ -93,13 +93,13 @@ class StoreAndBuy extends React.Component {
   buyHandle() {
     // 1. 检查是否登录
     const isLogin = this.loginCheck();
-
     if (!isLogin) {
       return;
     }
 
     // 2. 购买流程
 
+    // 3. 跳转
     hashHistory.push('user');
 
   }
