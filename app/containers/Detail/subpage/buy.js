@@ -12,7 +12,9 @@ import * as storeActionsFromFile from '../../../actions/store';
 class StoreAndBuy extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      isStore: false
+    };
     this.shouldComponentUpdate = PureReanderMixin.shouldComponentUpdate.bind(this);
   }
 
@@ -20,6 +22,7 @@ class StoreAndBuy extends React.Component {
     return(
       <div>
         <StoreAndBuyComponent
+          isStore={this.state.isStore}
           storeHandle={this.storeHandle.bind(this)}
           buyHandle={this.buyHandle.bind(this)} />
       </div>
@@ -27,27 +30,8 @@ class StoreAndBuy extends React.Component {
   }
 
   componentDidMount() {
-    console.log('data', this.props.store);
-    console.log('method', this.props.storeActions);
-  }
-
-
-  storeHandle() {
-    // 1. 检查是否登录
-  }
-
-  buyHandle() {
-    // 1. 检查是否登录
-    const isLogin = this.loginCheck();
-
-    if (!isLogin) {
-      return;
-    }
-
-    // 2. 购买流程
-
-    hashHistory.push('user');
-
+    // console.log('data', this.props.store);
+    // console.log('method', this.props.storeActions);
   }
 
   loginCheck() {
@@ -63,6 +47,61 @@ class StoreAndBuy extends React.Component {
     } else {
       return true;
     }
+  }
+
+  storeHandle() {
+    let This = this;
+
+    // 1. 检查是否登录
+    const isLogin = this.loginCheck();
+
+    if (!isLogin) {
+      return;
+    }
+
+    // 2. 收藏或取消收藏
+    const store = this.props.store;
+    const id = this.props.id;
+
+    if (!store.length) {
+      This.props.storeActions.add({
+        id: id
+      });
+    } else {
+      store.some(item => {
+        if (item.id === id) {
+          // 已经在收藏列表，现在需要取消收藏
+          This.props.storeActions.remove({
+            id: id
+          });
+        } else {
+
+          // 不在收藏列表，现在需要增加收藏
+          This.props.storeActions.add({
+            id: id
+          });
+        }
+      });
+
+    }
+
+    this.setState({
+      isStore: !This.state.isStore
+    });
+  }
+
+  buyHandle() {
+    // 1. 检查是否登录
+    const isLogin = this.loginCheck();
+
+    if (!isLogin) {
+      return;
+    }
+
+    // 2. 购买流程
+
+    hashHistory.push('user');
+
   }
 }
 

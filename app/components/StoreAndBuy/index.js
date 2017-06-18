@@ -7,7 +7,6 @@ export default class StoreAndBuy extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isStore: false
     };
     this.shouldComponentUpdate = PureReanderMixin.shouldComponentUpdate.bind(this);
   }
@@ -15,10 +14,10 @@ export default class StoreAndBuy extends React.Component {
   render() {
     return(
       <div role="component:StoreAndBuy">
-        <div className="store-container">
+        <div className="store-container" onClick={this.onStoreClick.bind(this)}>
           {
-            this.state.isStore ?
-            <button>已收藏</button> :
+            this.props.isStore ?
+            <button className="selected">已收藏</button> :
             <button>收藏</button>
           }
         </div>
@@ -27,6 +26,10 @@ export default class StoreAndBuy extends React.Component {
         </div>
       </div>
     );
+  }
+
+  onStoreClick() {
+    this.props.storeHandle();
   }
 
   onBuyClick() {
