@@ -12,12 +12,11 @@ export default function store (state=initialState, action) {
       return state;
 
     case actionTypes.STORE_REMOVE:
-      state.filter(item => {
-        if (item.id !== action.id) {
+      return state.filter(item => {
+        if (item.id !== action.data.id) {
           return item;
         }
       });
-      return state;
 
     default:
       return state;
