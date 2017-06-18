@@ -1,5 +1,6 @@
 import React from 'react';
 import PureReanderMixin from 'react-addons-pure-render-mixin';
+import { hashHistory } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -46,9 +47,23 @@ class Login extends React.Component {
   handleLogin(username) {
     // 同步到redux中
     let userinfo = this.props.userinfo;
+    const param = this.props.params;
 
     userinfo.username = username;
     this.props.userInfoActions.update(userinfo);
+
+    // 判断url中是否携带参数
+    // 1. 携带
+    // console.log('param', param);
+
+    if (param.router != null) {
+      hashHistory.push(param.router);
+
+    } else {
+      // window.history.back();
+      hashHistory.push('user');
+    }
+
   }
 
 }
