@@ -2,7 +2,7 @@ import React from 'react';
 import PureReanderMixin from 'react-addons-pure-render-mixin';
 
 import './index.styl';
-import Star from '../star';
+import Star from '../Star';
 
 export default class CommentList extends React.Component {
   constructor(props) {

@@ -33,9 +33,11 @@ class City extends React.Component {
 
   onCurrentCityChange(newCity) {
     // 1. 同步redux
-    this.props.userInfoActions.update({
-      cityName: newCity
-    });
+    let userinfo = this.props.userinfo;
+
+    userinfo.cityName = newCity;
+
+    this.props.userInfoActions.update(userinfo);
 
     // 2. 同步localStorage
     localStore.setItem(CITYNAME, newCity);
@@ -50,7 +52,7 @@ class City extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    cityName: state.userinfo.cityName
+    userinfo: state.userinfo
   };
 };
 
