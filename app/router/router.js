@@ -21,7 +21,7 @@ export default class Routes extends React.Component {
           <Route path="/search/:category(/:keywords)" component={Search}></Route>
           <Route path="/user" component={User}></Route>
           <Route path="/detail/:id" component={Detail}></Route>
-          <Route path="/login" component={Login}></Route>
+          <Route path="/login(/:router)" component={Login}></Route>
 
         </Route>
 

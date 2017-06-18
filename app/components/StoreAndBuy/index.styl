@@ -1,0 +1,24 @@
+@import '../../common/stylus/vars.styl';
+
+[role="component:StoreAndBuy"]
+  display flex
+  margin 5px 0 20px 0
+  justify-content center
+
+  button
+    font-size 16px
+    width 80px
+    background-color #f1f1f1
+    color #666
+    border 1px solid #666
+    padding 5px 0
+    cursor pointer
+    outline none
+
+    &.selected
+      background-color primaryRed
+      color #fff
+      border 1px solid primaryRed
+
+  .store-container
+    margin 0 20px 0 0
