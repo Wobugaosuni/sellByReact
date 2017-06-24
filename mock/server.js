@@ -81,6 +81,6 @@ app.use(koaRouter.routes())
    .use(koaRouter.allowedMethods());
 
 // 4. 监听端口
-app.listen(3000);
+app.listen(2999);
 
 // 5. 执行`npm run mock`，然后在浏览器测试
