@@ -36,6 +36,7 @@ class Login extends React.Component {
     // 检查是否已经登录，是否有username
     if (this.props.userinfo.username) {
       // 跳转到相应页面
+      hashHistory.push('/user');
     } else {
       // 跳转到登录页面
       this.setState({

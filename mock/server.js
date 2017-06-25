@@ -17,6 +17,7 @@ var homeListData = require('../data/home/list');
 var searchListData = require('../data/search/list');
 var sellerInfo = require('../data/detail/info');
 var sellerComment = require('../data/detail/comment');
+var orderList = require('../data/user/orderList');
 
 // 2. 编写路由
 // 首页 —— 广告（超值特惠）
@@ -59,6 +60,13 @@ koaRouter.get('/api/sellercomment/:id/:page', function (ctx, next) {
   ctx.body = sellerComment;
 });
 
+// 用户订单列表
+koaRouter.get('/api/orderlist/:username', function (ctx, next) {
+  console.log('orderlist/:username', ctx.params);
+
+  ctx.body = orderList;
+});
+
 // koaRouter.get('/', function (ctx, next) {
 //   ctx.body = 'hello koa';
 // });
@@ -81,6 +89,6 @@ app.use(koaRouter.routes())
    .use(koaRouter.allowedMethods());
 
 // 4. 监听端口
-app.listen(3000);
+app.listen(2999);
 
 // 5. 执行`npm run mock`，然后在浏览器测试
