@@ -19,7 +19,7 @@ export default class Star extends React.Component {
           [1, 2, 3, 4, 5].map((item, index) => {
             let lightClass = score >= item ? ' light-star' : '';
             return (
-              <span key={index} className={`icon-star${lightClass}`}></span>
+              <span onClick={this.starClick.bind(this, index)} key={index} className={`icon-star${lightClass}`}></span>
             );
           })
         }
@@ -27,8 +27,12 @@ export default class Star extends React.Component {
     );
   }
 
-  componentDidMount() {
-    //
+  starClick(index) {
+    if(!this.props.edit) {
+      return;
+    }
+
+    this.props.starClick(index+1);
   }
 
 }

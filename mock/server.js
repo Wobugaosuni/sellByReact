@@ -67,6 +67,15 @@ koaRouter.get('/api/orderlist/:username', function (ctx, next) {
   ctx.body = orderList;
 });
 
+// 提交评论
+koaRouter.post('/api/submitcomment', function (ctx, next) {
+
+  ctx.body = {
+    errorNumber: 0,
+    message: 'comment submit success'
+  };
+});
+
 // koaRouter.get('/', function (ctx, next) {
 //   ctx.body = 'hello koa';
 // });

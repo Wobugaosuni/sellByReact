@@ -20,7 +20,7 @@ export default class OrderList extends React.Component {
         <h3>您的订单</h3>
         {
           this.state.orderList.length ?
-          <OrderListComponent orderList={this.state.orderList} /> :
+          <OrderListComponent commentSubmit={this.commentSubmit.bind(this)} orderList={this.state.orderList} /> :
           '加载中'
         }
       </div>
@@ -30,12 +30,27 @@ export default class OrderList extends React.Component {
   componentDidMount() {
     let This = this;
 
+    // 获取订单列表
     getUserDataActions.getUserOrderList(
       This.props.username,
       data => {
         This.setState({
           orderList: data
         });
+      }
+    );
+  }
+
+  commentSubmit(id, value, star, updateState) {
+    // 提交评价
+    getUserDataActions.postComment(
+      id,
+      value,
+      star,
+      data => {
+        if (!data.errorNumber) {
+          updateState();
+        }
       }
     );
   }
