@@ -6,6 +6,7 @@ import { hashHistory } from 'react-router';
 import './index.styl';
 import Header from '../../components/Header';
 import UserInfo from '../../components/UserInfo';
+import OrderList from './subpage/orderList';
 
 class User extends React.Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class User extends React.Component {
       <div role="containers:User">
         <Header title="用户中心" />
         <UserInfo userinfo={userinfo} />
+        <OrderList username={userinfo.username} />
       </div>
     );
   }

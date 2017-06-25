@@ -20,7 +20,7 @@ export default class Comment extends React.Component {
 
   render() {
     return (
-      <div role="containers:Comment">
+      <div role="container:Comment">
         <h3 className="comment-title">用户点评</h3>
         <div className="full-line-divider"></div>
         {

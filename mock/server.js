@@ -17,6 +17,7 @@ var homeListData = require('../data/home/list');
 var searchListData = require('../data/search/list');
 var sellerInfo = require('../data/detail/info');
 var sellerComment = require('../data/detail/comment');
+var orderList = require('../data/user/orderList');
 
 // 2. 编写路由
 // 首页 —— 广告（超值特惠）
@@ -57,6 +58,13 @@ koaRouter.get('/api/sellercomment/:id/:page', function (ctx, next) {
   console.log('sellercomment/:id/:page', ctx.params);
 
   ctx.body = sellerComment;
+});
+
+// 用户订单列表
+koaRouter.get('/api/orderlist/:username', function (ctx, next) {
+  console.log('orderlist/:username', ctx.params);
+
+  ctx.body = orderList;
 });
 
 // koaRouter.get('/', function (ctx, next) {
