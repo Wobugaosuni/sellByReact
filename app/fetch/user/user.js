@@ -1,4 +1,5 @@
 import { get } from '../get';
+import { post } from '../post';
 
 export default {
   /**
@@ -19,6 +20,35 @@ export default {
     }).catch(error => {
       if (__DEV__) {
         console.log('getUserOrderList fail', error);
+      }
+    });
+  },
+
+  /**
+   * 提交评论
+   * @param {any} id
+   * @param {any} value
+   * @param {any} successCallback
+   */
+  postComment (id, value, successCallback) {
+    var result = post(
+      '/api/submitcomment',
+      {
+        id,
+        comment: value
+      }
+    );
+
+    result.then(response => {
+      return response.json();
+
+    }).then(json => {
+      successCallback(json);
+      console.log('postComment success', json);
+
+    }).catch(error => {
+      if (__DEV__) {
+        console.log('postComment fail', error);
       }
     });
   }

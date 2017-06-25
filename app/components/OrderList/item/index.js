@@ -42,8 +42,8 @@ export default class SellerList extends React.Component {
         {
           this.state.commentState === 1 ?
           <div className="comment-edit">
-            <textarea className="commit-content" />
-            <button className="normal-button comment-button">提交</button>
+            <textarea ref="commentContent" className="commit-content" />
+            <button className="normal-button comment-button" onClick={this.commentSubmit.bind(this)}>提交</button>
             <button className="normal-button" onClick={this.cancelCommit.bind(this)}>取消</button>
           </div> :
           ''
@@ -58,6 +58,23 @@ export default class SellerList extends React.Component {
     this.setState({
       commentState: data.commentState
     });
+  }
+
+  commentSubmit() {
+    const This = this;
+    const id = this.props.data.id;
+    const value = this.refs.commentContent.value.trim();
+
+    // 触发父父组件提交评论的函数
+    this.props.commentSubmit(
+      id,
+      value,
+      () => {
+        This.setState({
+          commentState: 2
+        });
+      }
+    );
   }
 
   showCommentEdit() {

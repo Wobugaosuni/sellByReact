@@ -18,7 +18,7 @@ export default class SellerList extends React.Component {
       <div role="component:OrderList">
         {
           this.props.orderList.map((item, index) => (
-            <OrderListItem data={item} key={index} />
+            <OrderListItem data={item} key={index} commentSubmit={this.props.commentSubmit} />
           ))
         }
       </div>
