@@ -41,11 +41,12 @@ export default class OrderList extends React.Component {
     );
   }
 
-  commentSubmit(id, value, updateState) {
+  commentSubmit(id, value, star, updateState) {
     // 提交评价
     getUserDataActions.postComment(
       id,
       value,
+      star,
       data => {
         if (!data.errorNumber) {
           updateState();

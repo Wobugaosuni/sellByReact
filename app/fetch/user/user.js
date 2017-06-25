@@ -30,12 +30,13 @@ export default {
    * @param {any} value
    * @param {any} successCallback
    */
-  postComment (id, value, successCallback) {
+  postComment (id, value, star, successCallback) {
     var result = post(
       '/api/submitcomment',
       {
         id,
-        comment: value
+        comment: value,
+        star
       }
     );
 

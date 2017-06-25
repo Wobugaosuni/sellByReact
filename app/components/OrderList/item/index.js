@@ -2,12 +2,14 @@ import React from 'react';
 import PureReanderMixin from 'react-addons-pure-render-mixin';
 
 import './index.styl';
+import Star from '../../../components/Star';
 
 export default class SellerList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      commentState: 2
+      commentState: 2,
+      score: 0
     };
     this.shouldComponentUpdate = PureReanderMixin.shouldComponentUpdate.bind(this);
   }
@@ -43,8 +45,14 @@ export default class SellerList extends React.Component {
           this.state.commentState === 1 ?
           <div className="comment-edit">
             <textarea ref="commentContent" className="commit-content" />
-            <button className="normal-button comment-button" onClick={this.commentSubmit.bind(this)}>提交</button>
-            <button className="normal-button" onClick={this.cancelCommit.bind(this)}>取消</button>
+            <Star
+              star={this.state.score}
+              starClick={this.starClick.bind(this)}
+              edit="true" />
+            <div className="button-wrapper">
+              <button className="normal-button comment-button" onClick={this.commentSubmit.bind(this)}>提交</button>
+              <button className="normal-button" onClick={this.cancelCommit.bind(this)}>取消</button>
+            </div>
           </div> :
           ''
         }
@@ -60,15 +68,24 @@ export default class SellerList extends React.Component {
     });
   }
 
+  // 星星被点击时的回调
+  starClick (score) {
+    this.setState({
+      score
+    });
+  }
+
   commentSubmit() {
     const This = this;
     const id = this.props.data.id;
     const value = this.refs.commentContent.value.trim();
+    const star = this.state.score;
 
     // 触发父父组件提交评论的函数
     this.props.commentSubmit(
       id,
       value,
+      star,
       () => {
         This.setState({
           commentState: 2
