@@ -78,7 +78,7 @@ export default class SellerList extends React.Component {
   commentSubmit() {
     const This = this;
     const id = this.props.data.id;
-    const value = this.refs.commentContent.value.trim();
+    const value = this.classNames.commentContent.value.trim();
     const star = this.state.score;
 
     // 触发父父组件提交评论的函数

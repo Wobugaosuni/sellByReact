@@ -18,6 +18,7 @@ export default class HomeAd extends React.Component {
         <div className="ad-container">
           {
             this.props.homeAdData.map((item, index) => {
+              // console.log('item:', item);
               return (
                 <div key={index} className="ad-item">
                   <i className="ad-img" style={{backgroundImage: `url(${item.img})`}}></i>

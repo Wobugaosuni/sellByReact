@@ -19,12 +19,13 @@ export default class Ad extends React.Component {
   }
 
   render() {
+    // console.log('this.state.homeAdData:', this.state.homeAdData);
     return (
       <div>
         {
           this.state.homeAdData.length ?
           <HomeAd homeAdData={this.state.homeAdData} /> :
-          ''
+          '数据没回来'
         }
 
       </div>
@@ -36,7 +37,7 @@ export default class Ad extends React.Component {
 
     // 获取广告数据
     getHomeDataActions.getHomeAd(json => {
-      // console.log('get homeAdData success', json);
+      console.log('get homeAdData success', json);
 
       if (json.length) {
         This.setState({

@@ -1,4 +1,5 @@
 ## 项目简介
+
 **脚手架**  <br />
 根据自己编程和项目组织的习惯，搭建了一个关于react的脚手架。已经发布到npm上了，可以直接使用：https://github.com/Wobugaosuni/react-redux-app-base
 <br />
@@ -9,7 +10,18 @@
 
 <br />
 
+## 项目启动
+
+```bash
+  # 1. 开启mock数据
+  npm run mock
+
+  # 2. 启动
+  npm start
+```
+
 ## 功能简介
+
 **首页**  <br />
 - 使用 swipe-js-iso 实现轮播图
 - 分页展示商户，监听下拉行为，自动加载更多
@@ -34,6 +46,7 @@
 <br />
 
 ## 遇到的问题和解决方法
+
 - 打包编译时，webpack不能打包svg文件
 <div align=center><img src="./images/build-error.jpeg" width="500" alt="error" /></div>
   解决方法： <br />
@@ -44,6 +57,7 @@
 <br />
 
 ## 待做的事情
+
 - 升级router，使用react-router-dom
 - 命令生成模板目录及文件
 
