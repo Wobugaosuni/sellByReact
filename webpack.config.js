@@ -72,7 +72,7 @@ module.exports = {
 
   // 对 webpack-dev-server 的配置
   devServer: {
-    // colors: true,  // 终端输出结果为彩色
+    // colors: true,  // 终端输出结果为彩色，webpack3.x之后不识别了
     historyApiFallback: true,  // 不跳转，在开发单页应用时非常有用，它依赖于HTML5 history API，如果设置为true，所有的跳转将指向index.html
     inline: true,  // 实时刷新
     hot: true,  // 使用热加载插件 HotModuleReplacementPlugin
