@@ -4,8 +4,8 @@
   "description": "A CLI for scaffolding React.js projects.",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=dev webpack-dev-server --progress --colors",
-    "build": "rm -rf ./build && NODE_ENV=production webpack --config ./webpack.production.config.js --progress --colors",
+    "start": "NODE_ENV=dev webpack-dev-server --hot --open",
+    "build": "rm -rf ./build && NODE_ENV=production webpack -p --progress --config webpack.production.config.js",
     "rm:build": "rm -rf ./build",
     "lint": "eslint ./app",
     "precommit-msg": "echo 'Pre-commit checks...' && exit 0",
