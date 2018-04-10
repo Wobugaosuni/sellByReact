@@ -1,6 +1,6 @@
 import React from 'react';
 import PureReanderMixin from 'react-addons-pure-render-mixin';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 import './index.styl';
 

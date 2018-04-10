@@ -1,6 +1,6 @@
 import React from 'react';
 import PureReanderMixin from 'react-addons-pure-render-mixin';
-import { hashHistory } from 'react-router';
+// import { hashHistory } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -22,7 +22,7 @@ class Login extends React.Component {
   render() {
     return(
       <div>
-        <Header title="登录" />
+        <Header title="登录" history={this.props.history} />
         {
           this.state.checking ?
           <div>{ /* 等待中 */ }</div> :
@@ -36,7 +36,7 @@ class Login extends React.Component {
     // 检查是否已经登录，是否有username
     if (this.props.userinfo.username) {
       // 跳转到相应页面
-      hashHistory.push('/user');
+      // hashHistory.push('/user');
     } else {
       // 跳转到登录页面
       this.setState({
@@ -48,22 +48,24 @@ class Login extends React.Component {
   handleLogin(username) {
     // 同步到redux中
     let userinfo = this.props.userinfo;
-    const param = this.props.params;
+    // const param = this.props;
 
     userinfo.username = username;
     this.props.userInfoActions.update(userinfo);
+
+    this.props.history.goBack();
 
     // 判断url中是否携带参数
     // 1. 携带
     // console.log('param', param);
 
-    if (param.router != null) {
-      hashHistory.push(param.router);
+    // if (param.router != null) {
+      // hashHistory.push(param.router);
 
-    } else {
+    // } else {
       // window.history.back();
-      hashHistory.push('user');
-    }
+      // hashHistory.push('user');
+    // }
 
   }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import PureReanderMixin from 'react-addons-pure-render-mixin';
-import { hashHistory } from 'react-router';
+// import { hashHistory } from 'react-router';
 
 import './index.styl';
 import SearchInput from '../SearchInput';
@@ -34,10 +34,10 @@ export default class SearchHeader extends React.Component {
 
   onReturnHomeClick() {
     // window.history.back();
-    hashHistory.push('/');
+    // hashHistory.push('/');
   }
 
   onEnterClick(newValue) {
-    hashHistory.push(`search/all/${encodeURIComponent(newValue)}`);
+    // hashHistory.push(`search/all/${encodeURIComponent(newValue)}`);
   }
 }

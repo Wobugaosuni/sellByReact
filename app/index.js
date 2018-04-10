@@ -9,7 +9,7 @@ import './common/stylus/index.styl'; // 引入公共样式
 
 // import { getData, postData } from './fetch/data';
 import RouterMap from './router/router';
-import { hashHistory } from 'react-router';
+// import { hashHistory } from 'react-router';
 
 // 性能检测
 import Perf from 'react-addons-perf';
@@ -29,7 +29,7 @@ const store = configureStore();
 
 render (
   <Provider store={store}>
-    <RouterMap history={hashHistory} />
+    <RouterMap />
   </Provider>,
   document.getElementById('root')
 );

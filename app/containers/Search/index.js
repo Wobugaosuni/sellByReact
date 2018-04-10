@@ -15,6 +15,7 @@ export default class Input extends React.Component {
   render() {
     return (
       <div role="containers:Search">
+      hello
         <SearchHeader searchValue={this.props.params.keywords} />
         <SearchList
           category={this.props.params.category}

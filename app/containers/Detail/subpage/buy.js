@@ -1,6 +1,6 @@
 import React from 'react';
 import PureReanderMixin from 'react-addons-pure-render-mixin';
-import { hashHistory } from 'react-router';
+// import { hashHistory } from 'react-router';
 
 import './index.styl';
 import StoreAndBuyComponent from '../../../components/StoreAndBuy';
@@ -57,7 +57,7 @@ class StoreAndBuy extends React.Component {
 
     if (!userinfo.username) {
       // 如果没有登录，跳转到登录页，并在url中携带参数——商户id，以便登录后直接跳转到商户详情页
-      hashHistory.push(`login/${encodeURIComponent(`/detail/${id}`)}`);
+      // hashHistory.push(`login/${encodeURIComponent(`/detail/${id}`)}`);
 
       return false;
 
@@ -100,7 +100,7 @@ class StoreAndBuy extends React.Component {
     // 2. 购买流程
 
     // 3. 跳转
-    hashHistory.push('user');
+    // hashHistory.push('user');
 
   }
 }

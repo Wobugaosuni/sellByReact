@@ -1,6 +1,6 @@
 import React from 'react';
 import PureReanderMixin from 'react-addons-pure-render-mixin';
-import { hashHistory } from 'react-router';
+// import { hashHistory } from 'react-router';
 
 import './index.styl';
 
@@ -21,6 +21,8 @@ export default class Header extends React.Component {
   }
 
   onReturnHomeClick() {
-    hashHistory.push('/');
+    // console.log('this.props:', this.props);
+    this.props.history.goBack();
+    // hashHistory.push('/');
   }
 }

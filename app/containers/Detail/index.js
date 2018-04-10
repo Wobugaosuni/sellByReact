@@ -17,7 +17,7 @@ export default class Input extends React.Component {
   render() {
     return (
       <div role="containers:Detail">
-        <Header title="商户详情" />
+        <Header title="商户详情" history={this.props.history} />
         <Info id={this.props.params.id} />
         <StoreAndBuy id={this.props.params.id} />
         <div className="gap-divider"></div>

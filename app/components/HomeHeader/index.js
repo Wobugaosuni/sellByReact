@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, hashHistory } from 'react-router';
+import { Link } from 'react-router-dom';
+// import { hashHistory } from 'react-router';
 
 import './index.styl';
 import SearchInput from '../SearchInput';
@@ -41,6 +42,6 @@ export default class HomeHeader extends React.Component {
   }
 
   onEnterClick(newValue) {
-     hashHistory.push(`search/all/${encodeURIComponent(newValue)}`);
+    //  hashHistory.push(`search/all/${encodeURIComponent(newValue)}`);
   }
 }

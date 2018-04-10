@@ -60,6 +60,3 @@
 
 - 升级router，使用react-router-dom
 - 命令生成模板目录及文件
-
-
-

@@ -1,7 +1,7 @@
 import React from 'react';
 import PureReanderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
-import { hashHistory } from 'react-router';
+// import { hashHistory } from 'react-router';
 
 import './index.styl';
 import Header from '../../components/Header';
@@ -20,7 +20,7 @@ class User extends React.Component {
 
     return (
       <div role="containers:User">
-        <Header title="用户中心" />
+        <Header title="用户中心" history={this.props.history} />
         <UserInfo userinfo={userinfo} />
         <OrderList username={userinfo.username} />
       </div>
@@ -30,7 +30,7 @@ class User extends React.Component {
   componentDidMount() {
     // 进入用户中心页前，先判断用户是否登录
     if (!this.props.userinfo.username) {
-      hashHistory.push('/login');
+      // hashHistory.push('/login');
     }
   }
 

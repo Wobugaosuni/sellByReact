@@ -1,6 +1,6 @@
 import React from 'react';
 import PureReanderMixin from 'react-addons-pure-render-mixin';
-import { hashHistory } from 'react-router';
+// import { hashHistory } from 'react-router';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -24,7 +24,7 @@ class City extends React.Component {
   render() {
     return (
       <div role="containers:City">
-        <Header title="选择城市" />
+        <Header title="选择城市" history={this.props.history} />
         <CurrentCity cityName={this.props.cityName} />
         <CityList currentCityChange={this.onCurrentCityChange.bind(this)} />
       </div>
@@ -42,10 +42,13 @@ class City extends React.Component {
     // 2. 同步localStorage
     localStore.setItem(CITYNAME, newCity);
 
+
     // 3. 返回首页
+    console.log('this.props:', this.props);
+    this.props.history.goBack();
     // window.history.back();
     // console.log('hashHistory', hashHistory);
-    hashHistory.push('/');
+    // hashHistory.push('/');
 
   }
 }
