@@ -47,16 +47,18 @@
 
 ## 遇到的问题和解决方法
 
-- 打包编译时，webpack不能打包svg文件
-<div align=center><img src="./images/build-error.jpeg" width="500" alt="error" /></div>
-  解决方法： <br />
-  现在浏览器基本也用不到 svg 的字体文件，可以把iconfont里引用svg的相关代码去掉
-
 - [升级react-router-dom](./doc/1.升级react-router-dom的一些坑.md)
 
 - [webpack.config.js的publicPath](./doc/2.刷新页面时，js文件404NotFound.md)
 
 - [encodeURIComponent和decodeURIComponent](./doc/encodeURIComponent和decodeURIComponent.md)
+
+- 打包编译时，webpack不能打包svg文件
+  <div align=center>
+    <img src="./images/build-error.jpeg" width="500" alt="error" />
+  </div>
+  解决方法： <br />
+  现在浏览器基本也用不到 svg 的字体文件，可以把iconfont里引用svg的相关代码去掉
 
 <br />
 
