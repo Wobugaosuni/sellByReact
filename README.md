@@ -52,9 +52,9 @@
   解决方法： <br />
   现在浏览器基本也用不到 svg 的字体文件，可以把iconfont里引用svg的相关代码去掉
 
-- 升级react-router-dom
+- [升级react-router-dom](./doc/1. 升级react-router-dom的一些坑.md)
 
-- webpack.config.js的publicPath
+- [webpack.config.js的publicPath](./doc/2. 刷新页面时，404 not found.md)
 
 - encodeURIComponent和decodeURIComponent
 
@@ -62,5 +62,5 @@
 
 ## 待做的事情
 
-- 升级router，使用react-router-dom
+- √ 升级router，使用react-router-dom
 - 命令生成模板目录及文件
