@@ -54,7 +54,7 @@
 
 - [升级react-router-dom](./doc/1. 升级react-router-dom的一些坑.md)
 
-- [webpack.config.js的publicPath](./doc/2. 刷新页面时，404 not found.md)
+- [webpack.config.js的publicPath](./doc/2. 刷新页面时，js文件404 not found.md)
 
 - encodeURIComponent和decodeURIComponent
 
