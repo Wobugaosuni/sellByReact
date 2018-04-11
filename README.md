@@ -56,7 +56,7 @@
 
 - [webpack.config.js的publicPath](./doc/2. 刷新页面时，js文件404 not found.md)
 
-- encodeURIComponent和decodeURIComponent
+- [encodeURIComponent和decodeURIComponent](./doc/encodeURIComponent和decodeURIComponent.md)
 
 <br />
 
