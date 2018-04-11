@@ -51,8 +51,12 @@
 <div align=center><img src="./images/build-error.jpeg" width="500" alt="error" /></div>
   解决方法： <br />
   现在浏览器基本也用不到 svg 的字体文件，可以把iconfont里引用svg的相关代码去掉
-<br />
-<br />
+
+- 升级react-router-dom
+
+- webpack.config.js的publicPath
+
+- encodeURIComponent和decodeURIComponent
 
 <br />
 

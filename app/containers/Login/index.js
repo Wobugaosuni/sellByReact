@@ -49,25 +49,22 @@ class Login extends React.Component {
   handleLogin(username) {
     // 同步到redux中
     let userinfo = this.props.userinfo;
-    // const param = this.props;
+    const params = this.props.match.params;
 
     userinfo.username = username;
     this.props.userInfoActions.update(userinfo);
 
-    this.props.history.goBack();
+    console.log('this.props:', this.props);
+
 
     // 判断url中是否携带参数
     // 1. 携带
-    // console.log('param', param);
 
-    // if (param.router != null) {
-      // hashHistory.push(param.router);
-
-    // } else {
-      // window.history.back();
-      // hashHistory.push('user');
-    // }
-
+    if (params.router != null) {
+      this.props.history.push('/' + decodeURIComponent(params.router));
+    } else {
+      this.props.history.push('/user');
+    }
   }
 
 }
