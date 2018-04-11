@@ -1,5 +1,6 @@
 import React from 'react';
 import PureReanderMixin from 'react-addons-pure-render-mixin';
+import {Link} from 'react-router-dom';
 // import { hashHistory } from 'react-router';
 
 import './index.styl';
@@ -16,7 +17,9 @@ export default class SearchHeader extends React.Component {
   render() {
     return (
       <div role="component:SearchHeader">
-        <i onClick={this.onReturnHomeClick.bind(this)} className="icon-chevron-left"></i>
+        <Link to="/">
+          <i onClick={this.onReturnHomeClick.bind(this)} className="icon-chevron-left"></i>
+        </Link>
         <div className="header-search">
           <i className="icon-search"></i>
           <SearchInput

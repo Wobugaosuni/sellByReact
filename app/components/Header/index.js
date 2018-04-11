@@ -1,5 +1,6 @@
 import React from 'react';
 import PureReanderMixin from 'react-addons-pure-render-mixin';
+import {Link} from 'react-router-dom';
 // import { hashHistory } from 'react-router';
 
 import './index.styl';
@@ -14,7 +15,10 @@ export default class Header extends React.Component {
   render() {
     return(
       <div role="component:Header">
-        <i onClick={this.onReturnHomeClick.bind(this)} className="icon-chevron-left"></i>
+        <Link to="/">
+          <i className="icon-chevron-left">
+          </i>
+        </Link>
         <h3>{this.props.title}</h3>
       </div>
     );
@@ -22,7 +26,7 @@ export default class Header extends React.Component {
 
   onReturnHomeClick() {
     // console.log('this.props:', this.props);
-    this.props.history.goBack();
+    // this.props.history.goBack();
     // hashHistory.push('/');
   }
 }
