@@ -7,7 +7,8 @@ module.exports = {
   entry: path.resolve(__dirname, 'app/index.js'), // 入口文件
 
   output: {
-    filename: 'bundle.js' // 出口文件
+    filename: 'bundle.js', // 出口文件
+    publicPath: '/'  // 绝对路径，不然有些页面刷新时，bundle.js路径会出错
   },
 
   // 定义能够被打包的文件，文件后缀名

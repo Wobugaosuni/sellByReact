@@ -2,6 +2,7 @@ import React from 'react';
 // import { Router, Route, IndexRoute } from 'react-router';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
+
 import App from '../containers';
 // import SubRouter from './SubRouter';
 import City from '../containers/City';
@@ -10,6 +11,7 @@ import Home from '../containers/Home';
 import Search from '../containers/Search';
 import User from '../containers/User';
 import Login from '../containers/Login';
+
 
 export default class Routes extends React.Component {
   render() {

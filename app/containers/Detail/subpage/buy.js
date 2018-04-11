@@ -1,6 +1,7 @@
 import React from 'react';
 import PureReanderMixin from 'react-addons-pure-render-mixin';
 // import { hashHistory } from 'react-router';
+import { withRouter } from 'react-router-dom';
 
 import './index.styl';
 import StoreAndBuyComponent from '../../../components/StoreAndBuy';
@@ -119,7 +120,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(StoreAndBuy);
+)(StoreAndBuy));

@@ -1,6 +1,7 @@
 import React from 'react';
 import PureReanderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 // import { hashHistory } from 'react-router';
 
 import './index.styl';
@@ -48,7 +49,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(User);
+)(User));

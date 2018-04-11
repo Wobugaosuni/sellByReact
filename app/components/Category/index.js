@@ -42,7 +42,7 @@ export default class Category extends React.Component {
                     {
                       item.pane ? item.pane.map((category, categoryIndex) => {
                         return (
-                          <Link key={categoryIndex} to={`search/${category.category}`}>
+                          <Link key={categoryIndex} to={`/search/${category.category}`}>
                             <li className="pane-item">
                               <span className="pane-icon" style={{backgroundImage: `url(${category.url})`}}></span>
                               <span className="pane-text">{category.text}</span>

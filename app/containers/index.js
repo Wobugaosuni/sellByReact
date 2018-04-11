@@ -1,6 +1,7 @@
 import React from 'react';
 // import './index.styl';
 import PureReanderMixin from 'react-addons-pure-render-mixin';
+import { withRouter } from 'react-router-dom';
 
 // 引入本地存储相关
 import { CITYNAME } from '../config/localStoreKey';
@@ -71,8 +72,8 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(App);
+)(App));
 

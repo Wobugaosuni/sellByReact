@@ -1,11 +1,13 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
+
 import './index.styl';
 import SearchHeader from '../../components/SearchHeader';
 import SearchList from './subpage/List';
 
 import PureReanderMixin from 'react-addons-pure-render-mixin';
 
-export default class Input extends React.Component {
+class Search extends React.Component {
   constructor(props) {
     super(props);
     this.shouldComponentUpdate = PureReanderMixin.shouldComponentUpdate.bind(this);
@@ -15,18 +17,18 @@ export default class Input extends React.Component {
   render() {
     return (
       <div role="containers:Search">
-      hello
-        <SearchHeader searchValue={this.props.params.keywords} />
+        <SearchHeader searchValue={this.props.match.params.keywords} />
         <SearchList
-          category={this.props.params.category}
-          keywords={this.props.params.keywords}
+          category={this.props.match.params.category}
+          keywords={this.props.match.params.keywords}
         />
       </div>
     );
   }
 
   componentDidMount() {
-    // console.log('mount params', this.props.params);
   }
 
 }
+
+export default Search;

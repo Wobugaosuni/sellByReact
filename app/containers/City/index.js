@@ -1,5 +1,6 @@
 import React from 'react';
 import PureReanderMixin from 'react-addons-pure-render-mixin';
+import { withRouter } from 'react-router-dom';
 // import { hashHistory } from 'react-router';
 
 import { connect } from 'react-redux';
@@ -65,7 +66,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(City);
+)(City));

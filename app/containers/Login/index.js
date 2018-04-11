@@ -1,6 +1,7 @@
 import React from 'react';
 import PureReanderMixin from 'react-addons-pure-render-mixin';
 // import { hashHistory } from 'react-router';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -84,7 +85,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(Login);
+)(Login));

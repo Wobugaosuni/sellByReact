@@ -1,6 +1,7 @@
 import React from 'react';
 import PureReanderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import './index.styl';
 import SellerList from '../../../components/SellerList';
@@ -120,8 +121,8 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(SearchList);
+)(SearchList));
 
