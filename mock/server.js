@@ -10,7 +10,7 @@ var koaBody = require('koa-body')();
 
 var mongoose = require('mongoose')
 
-mongoose.Promise = global.Promise;
+// mongoose.Promise = global.Promise;
 
 // 连接本地数据库
 mongoose.connect('mongodb://localhost/sellByReact')
@@ -86,12 +86,7 @@ koaRouter.get('/api/homelist/:city/:page', async (ctx, next) => {
   // mock数据
   // ctx.body = homeListData;
 
-
   // 从数据库里拿到数据
-  // HomeList.find({}, function (err, docs) {
-  //   console.log('get HomeList success:', docs);
-  // })
-
   // const data = await HomeList.fetch((err, data) => {
   //   if (err) console.log('fetch homeList error:', err);
 
@@ -99,10 +94,28 @@ koaRouter.get('/api/homelist/:city/:page', async (ctx, next) => {
   //   return data
   // })
 
-  const data = await db.HomeList.find()
+  const page = + ctx.params.page
+  let hasMore = false
 
-  // console.log('data:', data)
-  ctx.body = data
+  const list = await db.HomeList.find()
+  const count = await db.HomeList.find().count()
+
+  // console.log('get list success:', list)
+  console.log('list count:', count);
+
+  // 每次查询5条数据
+  if (count > page * 5) {
+    hasMore = true
+  } else {
+    hasMore = false
+  }
+
+  console.log('hasMore:', hasMore);
+
+  ctx.body = {
+    hasMore,
+    data: list.slice(0, 5),
+  }
   // console.log('ctx:', ctx.res);
 });
 

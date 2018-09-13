@@ -16,7 +16,7 @@ class List extends React.Component {
       listData: [],  // 存储列表信息
       hasMore: false,  // 记录当前状态下，是否有更多的数据可供加载。后端提供 ！
       isLoadingMore: false,  // 记录当前状态下，是”点击加载更多“，还是”加载中……“
-      page: 0  // 记录下一页的页面，首页是0
+      page: 1  // 记录下一页的页面，首页是1
     };
     this.shouldComponentUpdate = PureReanderMixin.shouldComponentUpdate.bind(this);
   }
