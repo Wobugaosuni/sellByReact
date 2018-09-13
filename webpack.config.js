@@ -61,7 +61,7 @@ module.exports = {
 
     //  打开浏览器
     new OpenBrowserPlugin({
-      url: 'http://localhost:8000'
+      url: 'http://localhost:8009'
     }),
 
     // 设置环境变量
@@ -77,7 +77,7 @@ module.exports = {
     historyApiFallback: true,  // 不跳转，在开发单页应用时非常有用，它依赖于HTML5 history API，如果设置为true，所有的跳转将指向index.html
     inline: true,  // 实时刷新
     hot: true,  // 使用热加载插件 HotModuleReplacementPlugin
-    port: 8000,
+    port: 8009,
     proxy: {  // 凡是 `/api` 开头的 http 请求，都会被代理到 localhost:3000 上，由 koa 提供 mock 数据。
       '/api': {
         target: 'http://localhost:2999',

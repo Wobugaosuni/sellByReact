@@ -8,6 +8,61 @@ var koa = require('koa');
 var router = require('koa-router');
 var koaBody = require('koa-body')();
 
+var mongoose = require('mongoose')
+
+mongoose.Promise = global.Promise;
+
+// 连接本地数据库
+mongoose.connect('mongodb://localhost/sellByReact')
+
+/**
+ * 连接成功
+ */
+mongoose.connection.on('connected', function () {
+  console.log('数据库连接成功');
+});
+
+/**
+* 连接异常
+*/
+mongoose.connection.on('error',function (err) {
+  console.log('数据库连接出现错误，错误为：'+ err);
+});
+
+/**
+* 连接断开
+*/
+mongoose.connection.on('disconnected', function () {
+  console.log('数据库连接断开');
+});
+
+// 把 HomeList 模型加载进来
+var db = require('../backEnd/models/homeList')
+
+const userobj={
+	user: 'hello world',
+}
+// new db.HomeList(userobj).save(function(error){
+// 	if (error) {
+//     // res.status(500).send()
+//     console.log('save user info error:', error);
+// 		return
+//   }
+//   console.log('save data success');
+// 	// res.json({statu: 200})
+// })
+
+// db.User.find({}, function(err, docs){
+// 	if (err) {
+// 			console.log('出错'+ err);
+// 			return;
+//   }
+//   console.log('docs:', docs)
+// 	// res.json(docs); // 以json格式输出
+// });
+
+
+
 var app = new koa();
 var koaRouter = new router();
 
@@ -26,10 +81,29 @@ koaRouter.get('/api/homead', function (ctx, next) {
 });
 
 // 首页 —— 推荐列表（猜你喜欢）
-koaRouter.get('/api/homelist/:city/:page', function (ctx, next) {
+koaRouter.get('/api/homelist/:city/:page', async (ctx, next) => {
   console.log('homelist.params', ctx.params);
+  // mock数据
+  // ctx.body = homeListData;
 
-  ctx.body = homeListData;
+
+  // 从数据库里拿到数据
+  // HomeList.find({}, function (err, docs) {
+  //   console.log('get HomeList success:', docs);
+  // })
+
+  // const data = await HomeList.fetch((err, data) => {
+  //   if (err) console.log('fetch homeList error:', err);
+
+  //   console.log('fetch homeList success:', data)
+  //   return data
+  // })
+
+  const data = await db.HomeList.find()
+
+  // console.log('data:', data)
+  ctx.body = data
+  // console.log('ctx:', ctx.res);
 });
 
 // 搜索页 —— 搜索结果列表(首页点击类目，三个参数)

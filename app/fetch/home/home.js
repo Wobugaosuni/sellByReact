@@ -31,6 +31,7 @@ export default {
     var result = get(`api/homelist/${encodeURIComponent(city)}/${page}`);
 
     result.then(response => {
+      console.log('response:', response);
       return response.json();
 
     }).then(json => {
