@@ -37,7 +37,7 @@ mongoose.connection.on('disconnected', function () {
 });
 
 // 把 HomeList 模型加载进来
-var db = require('../backEnd/models/homeList')
+var db = require('../backEnd/models/db')
 
 const userobj={
 	user: 'hello world',
@@ -164,13 +164,23 @@ koaRouter.post('/api/submitcomment', function (ctx, next) {
 });
 
 // 登录
-koaRouter.post('/api/postUserInfo', function (ctx, next) {
-  console.log('postUserInfo', ctx.params);
+koaRouter.post('/api/postUserInfo', koaBody, async (ctx, next) => {
+  console.log('postUserInfo', ctx.request.body);
 
-  ctx.body = {
-    errorNumber: 0,
-    message: 'postUserInfo success'
-  };
+  await new db.Login(ctx.request.body).save(function(error){
+    if (error) {
+      // res.status(500).send()
+      console.log('save user info error:', error);
+      return
+    }
+    console.log('save data success');
+    // res.json({statu: 200})
+  })
+
+  // ctx.body = {
+  //   errorNumber: 0,
+  //   message: 'postUserInfo success'
+  // };
 });
 
 // koaRouter.get('/', function (ctx, next) {
