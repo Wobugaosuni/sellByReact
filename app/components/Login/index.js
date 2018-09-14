@@ -7,7 +7,8 @@ export default class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: ''
+      username: '',
+      password: '',
     };
     this.shouldComponentUpdate = PureReanderMixin.shouldComponentUpdate.bind(this);
   }
@@ -27,7 +28,11 @@ export default class Login extends React.Component {
         <div className="input-container password-container">
           <i className="icon-key"></i>
           <button>发送验证码</button>
-          <input type="text" placeholder="输入验证码" />
+          <input
+            type="text"
+            placeholder="输入验证码"
+            onChange={this.onPasswordChange.bind(this)}
+          />
         </div>
         <button className="btn-login" onClick={this.onLoginClick.bind(this)}>登录</button>
       </div>
@@ -40,7 +45,13 @@ export default class Login extends React.Component {
     });
   }
 
+  onPasswordChange(event) {
+    this.setState({
+      password: event.target.value
+    });
+  }
+
   onLoginClick() {
-    this.props.handleLogin(this.state.username);
+    this.props.handleLogin(this.state.username, this.state.password);
   }
 }

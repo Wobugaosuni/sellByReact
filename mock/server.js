@@ -163,6 +163,16 @@ koaRouter.post('/api/submitcomment', function (ctx, next) {
   };
 });
 
+// 登录
+koaRouter.post('/api/postUserInfo', function (ctx, next) {
+  console.log('postUserInfo', ctx.params);
+
+  ctx.body = {
+    errorNumber: 0,
+    message: 'postUserInfo success'
+  };
+});
+
 // koaRouter.get('/', function (ctx, next) {
 //   ctx.body = 'hello koa';
 // });

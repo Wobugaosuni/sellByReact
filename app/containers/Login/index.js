@@ -10,6 +10,7 @@ import Header from '../../components/Header';
 import LoginComponent from '../../components/Login';
 
 import * as userInfoActionsFromOtherFile from '../../actions/userinfo';
+import userActions from '../../fetch/user/user';
 
 class Login extends React.Component {
   constructor(props) {
@@ -46,7 +47,7 @@ class Login extends React.Component {
     }
   }
 
-  handleLogin(username) {
+  handleLogin(username, password) {
     // 同步到redux中
     let userinfo = this.props.userinfo;
     const params = this.props.match.params;
@@ -56,15 +57,18 @@ class Login extends React.Component {
 
     console.log('this.props:', this.props);
 
+    userActions.postUserInfo(username, password, json => {
+      //
+    });
 
     // 判断url中是否携带参数
     // 1. 携带
 
-    if (params.router != null) {
-      this.props.history.push('/' + decodeURIComponent(params.router));
-    } else {
-      this.props.history.push('/user');
-    }
+    // if (params.router != null) {
+    //   this.props.history.push('/' + decodeURIComponent(params.router));
+    // } else {
+    //   this.props.history.push('/user');
+    // }
   }
 
 }

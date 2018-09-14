@@ -52,5 +52,33 @@ export default {
         console.log('postComment fail', error);
       }
     });
+  },
+
+  /**
+   * 登录
+   * @param {any} username
+   * @param {any} password
+   * @param {any} successCallback
+   */
+  postUserInfo (username, password, successCallback) {
+    var result = post(
+      '/api/postUserInfo',
+      {
+        username,
+        password
+      }
+    );
+
+    result.then(response => {
+      return response.json();
+
+    }).then(json => {
+      successCallback(json);
+      console.log('postUserInfo success', json);
+    }).catch(error => {
+      if (__DEV__) {
+        console.log('postUserInfo fail', error);
+      }
+    });
   }
 };

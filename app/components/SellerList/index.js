@@ -20,7 +20,7 @@ export default class SellerList extends React.Component {
             return (
               <div className="list-content" key={index}>
 
-                <Link to={`/detail/${item.id}`}>
+                <Link to={`/detail/${item._id}`}>
                   <div className="list-item">
                     <img width="115" height="90" src={item.img} />
                     <div className="item-right">
