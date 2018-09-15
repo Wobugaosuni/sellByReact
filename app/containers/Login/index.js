@@ -64,11 +64,11 @@ class Login extends React.Component {
     // 判断url中是否携带参数
     // 1. 携带
 
-    // if (params.router != null) {
-    //   this.props.history.push('/' + decodeURIComponent(params.router));
-    // } else {
-    //   this.props.history.push('/user');
-    // }
+    if (params.router != null) {
+      this.props.history.push('/' + decodeURIComponent(params.router));
+    } else {
+      this.props.history.push('/user');
+    }
   }
 
 }
