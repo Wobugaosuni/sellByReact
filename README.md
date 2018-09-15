@@ -60,6 +60,54 @@
   解决方法： <br />
   现在浏览器基本也用不到 svg 的字体文件，可以把iconfont里引用svg的相关代码去掉
 
+- 用koa获取到数据了，但接口还是返回 404
+源代码：
+  ```js
+    koaRouter.post('/api/postUserInfo', koaBody, async (ctx, next) => {
+      const userInfo = ctx.request.body
+      const _userInfo = new db.Login(userInfo)
+
+      _userInfo.save(function(error, data) {
+        if (error) {
+          // res.status(500).send()
+          console.log('save user info error:', error);
+          return
+        }
+
+        console.log('save data success:', data);
+        ctx.body = {
+          errorNumber: 1,
+          message: 'postUserInfo fail'
+        };
+      })
+    });
+  ```
+原因是因为 mongonse 查询数据的行为是异步的， 需要在查询数据的代码前加一个 await ， 不然代码走到这里，没有得到异步操作的返回结果，所以默认就返回了404
+正确的：
+```js
+  koaRouter.post('/api/postUserInfo', koaBody, async (ctx, next) => {
+    const userInfo = ctx.request.body
+    const _userInfo = new db.Login(userInfo)
+
+    await _userInfo.save()
+      .then(data => {
+        console.log('save data success:', data);
+        return ctx.body = {
+          errorNumber: 0,
+          message: 'postUserInfo success'
+        };
+      })
+      .catch(error => {
+        console.log('save user info error:', error);
+        return ctx.body = {
+          errorNumber: 1,
+          message: 'postUserInfo fail'
+        };
+      })
+  });
+```
+
+
 <br />
 
 ## 待做的事情

@@ -27,11 +27,11 @@ var homeListSchema = new Schema({
 });
 
 // 触发 save 之前的钩子，更新时间
-homeListSchema.pre('save', next => {
+homeListSchema.pre('save', function (next) {
   if (this.isNew) {
-    this.meta.createAt = this.meta.updateAt = Date.now;
+    this.meta.createAt = this.meta.updateAt = Date.now();
   } else {
-    this.meta.updateAt = Date.now;
+    this.meta.updateAt = Date.now();
   }
 
   next();
@@ -47,7 +47,7 @@ homeListSchema.static('fetch', function (cb) {
 });
 
 // 返回一条数据
-homeListSchema.static('findById', (id, cb) => {
+homeListSchema.static('findById', function (id, cb) {
   return this.findOne({
     _id: id
   }, cb);

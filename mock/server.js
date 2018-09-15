@@ -10,7 +10,7 @@ var koaBody = require('koa-body')();
 
 var mongoose = require('mongoose')
 
-// mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise;
 
 // 连接本地数据库
 mongoose.connect('mongodb://localhost/sellByReact')
@@ -87,13 +87,6 @@ koaRouter.get('/api/homelist/:city/:page', async (ctx, next) => {
   // ctx.body = homeListData;
 
   // 从数据库里拿到数据
-  // const data = await HomeList.fetch((err, data) => {
-  //   if (err) console.log('fetch homeList error:', err);
-
-  //   console.log('fetch homeList success:', data)
-  //   return data
-  // })
-
   const page = + ctx.params.page
   let hasMore = false
 
@@ -167,37 +160,57 @@ koaRouter.post('/api/submitcomment', function (ctx, next) {
 koaRouter.post('/api/postUserInfo', koaBody, async (ctx, next) => {
   console.log('postUserInfo', ctx.request.body);
 
-  await new db.Login(ctx.request.body).save(function(error){
-    if (error) {
-      // res.status(500).send()
-      console.log('save user info error:', error);
-      return
-    }
-    console.log('save data success');
-    // res.json({statu: 200})
-  })
+  const userInfo = ctx.request.body
+  const _userInfo = new db.Login(userInfo)
 
-  // ctx.body = {
-  //   errorNumber: 0,
-  //   message: 'postUserInfo success'
-  // };
+  // 方法一
+  // await _userInfo.save()
+  //   .then(data => {
+  //     console.log('save data success:', data);
+  //     return ctx.body = {
+  //       errorNumber: 0,
+  //       message: 'postUserInfo success'
+  //     };
+  //   })
+  //   .catch(error => {
+  //     console.log('save user info error:', error);
+  //     return ctx.body = {
+  //       errorNumber: 1,
+  //       message: 'postUserInfo fail'
+  //     };
+  //   })
+
+  // 方法二
+  try {
+    const data = await _userInfo.save()
+    console.log('save data success:', data);
+    return ctx.body = {
+      errorNumber: 0,
+      message: 'postUserInfo success'
+    };
+  } catch(error) {
+    console.log('save user info error:', error);
+    return ctx.body = {
+      errorNumber: 1,
+      message: 'postUserInfo fail'
+    };
+  }
+
+  // 错误的方法
+  // _userInfo.save(function(error, data) {
+  //   if (error) {
+  //     // res.status(500).send()
+  //     console.log('save user info error:', error);
+  //     return
+  //   }
+
+  //   console.log('save data success:', data);
+  //   ctx.body = {
+  //     errorNumber: 1,
+  //     message: 'postUserInfo fail'
+  //   };
+  // })
 });
-
-// koaRouter.get('/', function (ctx, next) {
-//   ctx.body = 'hello koa';
-// });
-
-// koaRouter.get('/api', function (ctx, next) {
-//   ctx.body = testData;
-// });
-
-// koaRouter.get('/api/get', function (ctx, next) {
-//   ctx.body = testData.goods;
-// });
-
-// koaRouter.post('/api/post', koaBody, function (ctx) {
-//   ctx.body = JSON.stringify(ctx.request.body);
-// });
 
 
 // 3. 使用路由
