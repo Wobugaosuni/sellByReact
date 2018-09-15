@@ -22,7 +22,7 @@ var loginSchema = new Schema({
 
 // 触发 save 之前的钩子，更新时间
 loginSchema.pre('save', function (next) {
-  // console.log('new:', this.new, this);
+  console.log('----new----:', this.new);
   if (this.isNew) {
     this.meta.createAt = this.meta.updateAt = Date.now();
   } else {

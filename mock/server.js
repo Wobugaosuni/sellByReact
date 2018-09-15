@@ -186,7 +186,8 @@ koaRouter.post('/api/postUserInfo', koaBody, async (ctx, next) => {
     console.log('save data success:', data);
     return ctx.body = {
       errorNumber: 0,
-      message: 'postUserInfo success'
+      message: 'postUserInfo success',
+      content: data
     };
   } catch(error) {
     console.log('save user info error:', error);
